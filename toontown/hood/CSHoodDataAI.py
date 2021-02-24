@@ -8,6 +8,7 @@ from toontown.building import DoorTypes
 from toontown.coghq import LobbyManagerAI
 from toontown.building import DistributedVPElevatorAI
 from toontown.suit import DistributedSellbotBossAI
+from toontown.suit import DistributedBlackFridayVPBossAI
 from toontown.building import DistributedBoardingPartyAI
 
 class CSHoodDataAI(HoodDataAI.HoodDataAI):
@@ -29,7 +30,7 @@ class CSHoodDataAI(HoodDataAI.HoodDataAI):
         self.testElev1 = DistributedFactoryElevatorExtAI.DistributedFactoryElevatorExtAI(self.air, self.air.factoryMgr, ToontownGlobals.SellbotFactoryInt, 1, antiShuffle=0, minLaff=mins[1])
         self.testElev1.generateWithRequired(ToontownGlobals.SellbotFactoryExt)
         self.addDistObj(self.testElev1)
-        self.lobbyMgr = LobbyManagerAI.LobbyManagerAI(self.air, DistributedSellbotBossAI.DistributedSellbotBossAI)
+        self.lobbyMgr = LobbyManagerAI.LobbyManagerAI(self.air, DistributedBlackFridayVPBossAI.DistributedBlackFridayVPBossAI)
         self.lobbyMgr.generateWithRequired(ToontownGlobals.SellbotLobby)
         self.addDistObj(self.lobbyMgr)
         self.lobbyElevator = DistributedVPElevatorAI.DistributedVPElevatorAI(self.air, self.lobbyMgr, ToontownGlobals.SellbotLobby, antiShuffle=1)
